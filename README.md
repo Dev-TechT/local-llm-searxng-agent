@@ -4,6 +4,8 @@
 
 This project provides a tool that accepts user prompts via the command line. When keywords indicating a need for current information or images are detected, it queries a local SearxNG instance. Text results are combined with the original prompt and sent to a local LLM (like Ollama, LM Studio, etc.), while image results (URLs) are displayed directly. The setup uses a custom-configured SearxNG instance running in Podman.
 
+![Demo of LLM Web Agent](Demo.gif)
+
 ## Features
 
 -   Accepts user prompts via CLI.
