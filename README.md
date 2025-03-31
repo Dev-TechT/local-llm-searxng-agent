@@ -24,7 +24,6 @@ This project provides a tool that accepts user prompts via the command line. Whe
 ├── llm_web_agent/                # Python agent code
 │   ├── agent.py                  # Main agent script
 │   ├── config.py                 # Configuration (URLs, keywords)
-│   ├── PLAN.md                   # Original development plan
 │   └── requirements.txt          # Python dependencies
 └── searxng_config/               # SearxNG configuration for custom image
     └── settings.yml              # Pre-configured SearxNG settings
