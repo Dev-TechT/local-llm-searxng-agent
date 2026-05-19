@@ -46,6 +46,37 @@ This project provides a tool that accepts user prompts via the command line. Whe
     *   Verify the server is running and accessible at its address.
     *   Ensure this address matches the `LOCAL_LM_URL` configured in `llm_web_agent/config.py`.
 
+### Ollama Setup (Optional)
+
+[Ollama](https://ollama.com) is a popular way to run LLMs locally with an OpenAI-compatible API.
+
+1. **Install Ollama:**
+   ```bash
+   # macOS/Linux
+   curl -fsSL https://ollama.com/install.sh | sh
+   
+   # Or download from https://ollama.com/download
+   ```
+
+2. **Pull a model:**
+   ```bash
+   ollama pull llama3.2
+   ```
+
+3. **Start Ollama (runs in background):**
+   ```bash
+   ollama serve
+   ```
+
+4. **Configure the agent:**
+   Edit `llm_web_agent/config.py`:
+   ```python
+   LOCAL_LM_URL = "http://127.0.0.1:11434/v1/chat/completions"
+   LOCAL_LM_MODEL = "llama3.2"
+   ```
+
+   The `/v1/chat/completions` endpoint provides OpenAI API compatibility.
+
 ## Setup
 
 1.  **Clone/Download:** Obtain the project files (e.g., `git clone <repository_url>`).
