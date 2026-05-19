@@ -69,10 +69,10 @@ This project provides a tool that accepts user prompts via the command line. Whe
    ```
 
 4. **Configure the agent:**
-   Edit `llm_web_agent/config.py`:
-   ```python
-   LOCAL_LM_URL = "http://127.0.0.1:11434/v1/chat/completions"
-   LOCAL_LM_MODEL = "llama3.2"
+   Set environment variables, or edit `llm_web_agent/config.py`:
+   ```bash
+   export LOCAL_LM_URL="http://127.0.0.1:11434/v1/chat/completions"
+   export LOCAL_LM_MODEL="llama3.2"
    ```
 
    The `/v1/chat/completions` endpoint provides OpenAI API compatibility.
@@ -107,6 +107,22 @@ This project provides a tool that accepts user prompts via the command line. Whe
         # macOS/Linux: source venv/bin/activate
         ```
     *   Install dependencies: `pip install -r requirements.txt`
+
+## Configuration
+
+The agent uses local-first defaults from `llm_web_agent/config.py`, and you can
+override common settings with environment variables:
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `LOCAL_LM_URL` | `http://127.0.0.1:1234/v1/chat/completions` | OpenAI-compatible local LLM chat endpoint. |
+| `LOCAL_LM_MODEL` | unset | Optional model name sent to the local LLM. |
+| `SEARXNG_URL` | `http://127.0.0.1:8080` | Local SearxNG base URL. |
+| `MAX_SEARCH_RESULTS` | `5` | Maximum text or image results to include. |
+| `REQUEST_TIMEOUT` | `15` | SearxNG request timeout in seconds. |
+
+Numeric values must be positive integers. Invalid numeric overrides fall back to
+the defaults and print a warning.
 
 ## Running the Agent
 
